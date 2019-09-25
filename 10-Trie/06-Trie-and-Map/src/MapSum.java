@@ -4,7 +4,7 @@ public class MapSum {
 
     private class Node{
 
-        public int value;
+        public int value; // value为0代表不是一个词  是不是一个词可以由value决定
         public TreeMap<Character, Node> next;
 
         public Node(int value){
