@@ -34,7 +34,7 @@ public class MapSum {
                 cur.next.put(c, new Node());
             cur = cur.next.get(c);
         }
-        cur.value = val;
+        cur.value = val; // 每个字母全部添加到trie中以后 添加完成以后需要添加value
     }
 
     public int sum(String prefix) {
@@ -51,10 +51,10 @@ public class MapSum {
     }
 
     private int sum(Node node){
-
+        // 为什么没有递归到底？ 因为下面已经包含了递归到底的情况了
         int res = node.value;
-        for(char c: node.next.keySet())
-            res += sum(node.next.get(c));
+        for(char c: node.next.keySet()) // 这里包含了递归到底的情况
+            res += sum(node.next.get(c)); // 当前node的value和node所有的子树的value值加入到res中 最后返回回去
         return res;
     }
 }
