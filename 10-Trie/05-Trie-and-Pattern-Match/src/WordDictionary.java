@@ -42,7 +42,7 @@ public class WordDictionary {
 
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     public boolean search(String word) {
-        return match(root, word, 0);
+        return match(root, word, 0); // 从0开始
     }
 
     private boolean match(Node node, String word, int index){

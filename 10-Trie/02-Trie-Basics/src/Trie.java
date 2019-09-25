@@ -41,7 +41,7 @@ public class Trie {
             cur = cur.next.get(c);
         }
 
-        if(!cur.isWord){
+        if(!cur.isWord){ // 如果添加的单词已经在trie中 size++ 之前需要判断一下
             cur.isWord = true;
             size ++;
         }

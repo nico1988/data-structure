@@ -12,11 +12,11 @@ public class Main {
             long startTime = System.nanoTime();
 
             BSTSet<String> set = new BSTSet<>();
-            for(String word: words)
+            for(String word: words) // 测试添加
                 set.add(word);
 
-            for(String word: words)
-                set.contains(word);
+            for(String word: words) // 测试查询
+                set.contains(word); // 就是运转一下 没什么意义
 
             long endTime = System.nanoTime();
 

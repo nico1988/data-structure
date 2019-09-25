@@ -99,7 +99,7 @@ class NumArrayComplete {
                 throw new IllegalArgumentException("Index is illegal");
 
             data[index] = e;
-            set(0, 0, data.length - 1, index, e);
+            set(0, 0, data.length - 1, index, e); // 递归调用
         }
 
         // 在以treeIndex为根的线段树中更新index的值为e

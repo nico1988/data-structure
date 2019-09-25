@@ -1,7 +1,7 @@
 public class SegmentTree<E> {
 
-    private E[] tree;
-    private E[] data;
+    private E[] tree; // 二叉树
+    private E[] data; // 数组数据
     private Merger<E> merger;
 
     public SegmentTree(E[] arr, Merger<E> merger){
@@ -99,22 +99,22 @@ public class SegmentTree<E> {
     // 在以treeIndex为根的线段树中更新index的值为e
     private void set(int treeIndex, int l, int r, int index, E e){
 
-        if(l == r){
+        if(l == r){ // 找到了更新的节点
             tree[treeIndex] = e;
             return;
         }
 
-        int mid = l + (r - l) / 2;
+        int mid = l + (r - l) / 2; // 找到中间为位置
         // treeIndex的节点分为[l...mid]和[mid+1...r]两部分
 
-        int leftTreeIndex = leftChild(treeIndex);
-        int rightTreeIndex = rightChild(treeIndex);
+        int leftTreeIndex = leftChild(treeIndex); // 左右边界
+        int rightTreeIndex = rightChild(treeIndex); // 左右边界
         if(index >= mid + 1)
             set(rightTreeIndex, mid + 1, r, index, e);
         else // index <= mid
             set(leftTreeIndex, l, mid, index, e);
 
-        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
+        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]); // 更新节点信息
     }
 
     @Override
