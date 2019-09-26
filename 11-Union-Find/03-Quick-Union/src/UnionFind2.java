@@ -21,14 +21,14 @@ public class UnionFind2 implements UF {
     }
 
     // 查找过程, 查找元素p所对应的集合编号
-    // O(h)复杂度, h为树的高度
+    // O(h)复杂度, h为树的高度 时间复杂和高度由关系
     private int find(int p){
         if(p < 0 || p >= parent.length)
             throw new IllegalArgumentException("p is out of bound.");
 
         // 不断去查询自己的父亲节点, 直到到达根节点
         // 根节点的特点: parent[p] == p
-        while(p != parent[p])
+        while(p != parent[p]) // 这个循环有点变扭 要理解
             p = parent[p];
         return p;
     }
@@ -45,12 +45,12 @@ public class UnionFind2 implements UF {
     @Override
     public void unionElements(int p, int q){
 
-        int pRoot = find(p);
-        int qRoot = find(q);
+        int pRoot = find(p); // p的根节点
+        int qRoot = find(q); // q的根节点
 
-        if( pRoot == qRoot )
+        if( pRoot == qRoot ) // 如果是同一个根节点
             return;
 
-        parent[pRoot] = qRoot;
+        parent[pRoot] = qRoot; // 否则把p的根节点指向q的根节点
     }
 }
