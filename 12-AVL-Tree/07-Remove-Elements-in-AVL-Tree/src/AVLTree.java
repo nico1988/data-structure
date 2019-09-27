@@ -273,8 +273,8 @@ public class AVLTree<K extends Comparable<K>, V> {
                 // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
                 // 用这个节点顶替待删除节点的位置
                 Node successor = minimum(node.right);
-                //successor.right = removeMin(node.right);
-                successor.right = remove(node.right, successor.key);
+                //successor.right = removeMin(node.right); // 这里可能打破平衡 所以需要在这个里边维持平衡
+                successor.right = remove(node.right, successor.key); // remove本身有对平衡性的维护
                 successor.left = node.left;
 
                 node.left = node.right = null;
