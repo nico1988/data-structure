@@ -6,14 +6,14 @@ public class AVLTree<K extends Comparable<K>, V> {
         public K key;
         public V value;
         public Node left, right;
-        public int height;
+        public int height; // 节点当前所处的高度值
 
         public Node(K key, V value){
             this.key = key;
             this.value = value;
             left = null;
             right = null;
-            height = 1;
+            height = 1; // 默认的节点高度值为1
         }
     }
 
@@ -41,6 +41,7 @@ public class AVLTree<K extends Comparable<K>, V> {
     }
 
     // 获得节点node的平衡因子
+    // 平衡因子= 左子树-右子树高度
     private int getBalanceFactor(Node node){
         if(node == null)
             return 0;
@@ -68,7 +69,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         else // key.compareTo(node.key) == 0
             node.value = value;
 
-        // 更新height
+        // 不管去左边还是右边 height可能发生了变化 更新height
         node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
 
         // 计算平衡因子

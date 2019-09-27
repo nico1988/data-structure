@@ -102,7 +102,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         y.left = T3;
 
         // 更新height
-        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
+        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1; // 先算y 再算x
         x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
 
         return x;
@@ -125,7 +125,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         y.right = T2;
 
         // 更新height
-        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
+        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1; // 先算y 再算x 因为x在y的上面
         x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
 
         return x;
@@ -162,10 +162,10 @@ public class AVLTree<K extends Comparable<K>, V> {
 
         // 平衡维护
         if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)
-            return rightRotate(node);
+            return rightRotate(node); // 右旋转 插入的元素在左侧的左侧
 
         if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)
-            return leftRotate(node);
+            return leftRotate(node); // 左旋转  插入的元素在右侧的右侧
 
         return node;
     }

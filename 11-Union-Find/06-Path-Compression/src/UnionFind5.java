@@ -32,7 +32,7 @@ public class UnionFind5 implements UF {
             throw new IllegalArgumentException("p is out of bound.");
 
         while( p != parent[p] ){
-            parent[p] = parent[parent[p]];
+            parent[p] = parent[parent[p]]; // 路径优化 这里没有优化rank  rank只是标识排名 rank稍微粗略一点也没有问题
             p = parent[p];
         }
         return p;

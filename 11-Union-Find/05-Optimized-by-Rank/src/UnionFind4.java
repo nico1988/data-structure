@@ -1,7 +1,7 @@
 // 我们的第四版Union-Find
 public class UnionFind4 implements UF {
 
-    private int[] rank;   // rank[i]表示以i为根的集合所表示的树的层数
+    private int[] rank;   // rank[i]表示以i为根的集合所表示的树的层数/高度
     private int[] parent; // parent[i]表示第i个元素所指向的父节点
 
     // 构造函数
@@ -13,7 +13,7 @@ public class UnionFind4 implements UF {
         // 初始化, 每一个parent[i]指向自己, 表示每一个元素自己自成一个集合
         for( int i = 0 ; i < size ; i ++ ){
             parent[i] = i;
-            rank[i] = 1;
+            rank[i] = 1; // 初始都是1
         }
     }
 

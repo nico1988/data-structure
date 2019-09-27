@@ -33,8 +33,8 @@ public class UnionFind6 implements UF {
 
         // path compression 2, 递归算法
         if(p != parent[p])
-            parent[p] = find(parent[p]);
-        return parent[p];
+            parent[p] = find(parent[p]); // 路径压缩 把所有的节点直接指向根节点
+        return parent[p]; // 返回p节点的根节点 其实也是整个树的根节点
     }
 
     // 查看元素p和元素q是否所属一个集合

@@ -29,7 +29,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int size = 10000000;
+        int size = 1000000;
         int m = 10000000;
 
 //        UnionFind1 uf1 = new UnionFind1(size);
