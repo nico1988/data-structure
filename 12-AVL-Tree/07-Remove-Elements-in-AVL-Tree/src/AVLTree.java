@@ -237,7 +237,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         if( node == null )
             return null;
 
-        Node retNode;
+        Node retNode; // 维护删除的 node  后面需要对这个retnode进行维护
         if( key.compareTo(node.key) < 0 ){
             node.left = remove(node.left , key);
             // return node;
@@ -314,7 +314,7 @@ public class AVLTree<K extends Comparable<K>, V> {
             return leftRotate(retNode);
         }
 
-        return retNode;
+        return retNode; // 前面都没有进去 没有平衡问题，直接返回就可以了
     }
 
     public static void main(String[] args){

@@ -161,10 +161,10 @@ public class AVLTree<K extends Comparable<K>, V> {
 //            System.out.println("unbalanced : " + balanceFactor);
 
         // 平衡维护
-        if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)
+        if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)//左边比右边高
             return rightRotate(node); // 右旋转 插入的元素在左侧的左侧
 
-        if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)
+        if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)//右边比左边高
             return leftRotate(node); // 左旋转  插入的元素在右侧的右侧
 
         return node;
