@@ -232,6 +232,12 @@ public class AVLTree<K extends Comparable<K>, V> {
         return null;
     }
 
+    /**
+     * 删除以node为根节点的键为key的所对应的节点
+     * @param node
+     * @param key
+     * @return
+     */
     private Node remove(Node node, K key){
 
         if( node == null )

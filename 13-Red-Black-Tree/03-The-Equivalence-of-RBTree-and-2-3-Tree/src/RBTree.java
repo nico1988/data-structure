@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class RBTree<K extends Comparable<K>, V> {
 
-    private static final boolean RED = true;
-    private static final boolean BLACK = false;
+    private static final boolean RED = true; // 相当于常量
+    private static final boolean BLACK = false; // 相当于常量
 
     private class Node{
         public K key;
@@ -16,7 +16,7 @@ public class RBTree<K extends Comparable<K>, V> {
             this.value = value;
             left = null;
             right = null;
-            color = RED;
+            color = RED; // 初始化的时候节点默认是红色的
         }
     }
 

@@ -76,7 +76,7 @@ public class RBTree<K extends Comparable<K>, V> {
         x.right = node;
 
         x.color = node.color;
-        node.color = RED;
+        node.color = RED; // 和父节点融合在一起
 
         return x;
     }
